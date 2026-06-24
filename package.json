@@ -36,6 +36,7 @@
     "lint": "n8n-node lint",
     "lint:fix": "n8n-node lint --fix",
     "typecheck": "tsc --noEmit",
+    "release": "n8n-node release",
     "prepublishOnly": "n8n-node prerelease",
     "n8n:dev": "CREDENTIALS_OVERWRITE_DATA_FILE=./credentials-overwrite.dev.json n8n start",
     "n8n:prod": "n8n start"
