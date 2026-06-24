@@ -1,0 +1,59 @@
+{
+  "name": "n8n-nodes-upvoty",
+  "version": "0.2.0",
+  "description": "n8n community node for Upvoty — feedback management platform",
+  "license": "MIT",
+  "author": {
+    "name": "Upvoty",
+    "email": "support@upvoty.com",
+    "url": "https://upvoty.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CopyPasteTM/n8n-nodes-upvoty"
+  },
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "upvoty",
+    "feedback",
+    "product-management"
+  ],
+  "main": "dist/nodes/Upvoty/Upvoty.node.js",
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/UpvotyOAuth2Api.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Upvoty/Upvoty.node.js",
+      "dist/nodes/Upvoty/UpvotyTrigger.node.js"
+    ]
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "n8n-node prerelease",
+    "n8n:dev": "CREDENTIALS_OVERWRITE_DATA_FILE=./credentials-overwrite.dev.json n8n start",
+    "n8n:prod": "n8n start"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@n8n/node-cli": "^0.24.1",
+    "@types/node": "^25.5.0",
+    "eslint": "^9.39.4",
+    "n8n-workflow": "*",
+    "typescript": "~5.7.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
