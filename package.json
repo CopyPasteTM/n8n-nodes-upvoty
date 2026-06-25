@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-upvoty",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "n8n community node for Upvoty — feedback management platform",
   "license": "MIT",
   "author": {
