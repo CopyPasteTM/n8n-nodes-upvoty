@@ -149,7 +149,11 @@ export class UpvotyTrigger implements INodeType {
 				try {
 					await upvotyOAuth2ApiRequest.call(this, 'DELETE', `/webhooks/${webhookId}`);
 				} catch {
-					// Webhook may already be deleted (e.g. integration removed from dashboard)
+					// Webhook may already be deleted (e.g. integration removed from dashboard).
+					// Clear stored state anyway so the next activation re-registers via create()
+					// instead of being stuck (checkExists would otherwise still return true).
+					delete webhookData.webhookId;
+					delete webhookData.signingSecret;
 					return false;
 				}
 

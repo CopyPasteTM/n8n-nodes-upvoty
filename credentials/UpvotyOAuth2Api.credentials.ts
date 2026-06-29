@@ -15,7 +15,8 @@ export class UpvotyOAuth2Api implements ICredentialType {
 			displayName: 'Grant Type',
 			name: 'grantType',
 			type: 'hidden',
-			default: 'authorizationCode',
+			// PKCE: Upvoty's n8n client is a public client (no secret to distribute).
+			default: 'pkce',
 		},
 		{
 			displayName: 'Authorization URL',
@@ -36,11 +37,13 @@ export class UpvotyOAuth2Api implements ICredentialType {
 			default: 'upvoty_cid_8469d04b3c5d980cc7589891c8e5b7ea',
 		},
 		{
+			// Public PKCE client: no secret is shipped. Kept as a hidden empty
+			// field so n8n's inherited oAuth2Api Client Secret input stays hidden.
 			displayName: 'Client Secret',
 			name: 'clientSecret',
 			type: 'hidden',
 			typeOptions: { password: true },
-			default: 'upvoty_cs_859db34c32433e18c7e3c42221fe53f030a2ab457f16e3a63fdb7839e122c8d9',
+			default: '',
 		},
 		{
 			displayName: 'Scope',
